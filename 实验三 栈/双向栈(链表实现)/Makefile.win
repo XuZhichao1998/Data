@@ -1,0 +1,31 @@
+# Project: 双向栈链表实现
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = stacklnk.o stackTest.o
+LINKOBJ  = stacklnk.o stackTest.o
+LIBS     = -L"C:/Users/HP/Desktop/dev-cpp/MinGW64/lib" -L"C:/Users/HP/Desktop/dev-cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Users/HP/Desktop/dev-cpp/MinGW64/include" -I"C:/Users/HP/Desktop/dev-cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/HP/Desktop/dev-cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Users/HP/Desktop/dev-cpp/MinGW64/include" -I"C:/Users/HP/Desktop/dev-cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/HP/Desktop/dev-cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Users/HP/Desktop/dev-cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = 双向栈链表实现.exe
+CXXFLAGS = $(CXXINCS) -ansi -Wall -g3 -std=c++11
+CFLAGS   = $(INCS) -ansi -Wall -g3 -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+stacklnk.o: stacklnk.cpp
+	$(CPP) -c stacklnk.cpp -o stacklnk.o $(CXXFLAGS)
+
+stackTest.o: stackTest.cpp
+	$(CPP) -c stackTest.cpp -o stackTest.o $(CXXFLAGS)
